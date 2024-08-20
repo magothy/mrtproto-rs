@@ -30,7 +30,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mrtproto-rs"
+name = "mrtproto"
 version = "0.1.0"
 dependencies = [
  "prost",
