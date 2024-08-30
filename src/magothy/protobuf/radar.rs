@@ -17,6 +17,8 @@ pub struct Spokes {
 pub struct Info {
     #[prost(message, optional, tag="1")]
     pub timestamp: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="9")]
+    pub ttag_steady_ns: u64,
     #[prost(enumeration="State", tag="2")]
     pub state: i32,
     #[prost(int32, tag="3")]
@@ -33,7 +35,7 @@ pub struct Info {
     pub spokes: ::core::option::Option<Spokes>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct Command {
     #[prost(enumeration="CommandType", tag="1")]
     pub command: i32,
