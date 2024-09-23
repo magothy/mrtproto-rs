@@ -59,15 +59,15 @@ impl State {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            State::Off => "STATE_OFF",
-            State::Standby => "STATE_STANDBY",
-            State::WarmingUp => "STATE_WARMING_UP",
-            State::TimedIdle => "STATE_TIMED_IDLE",
-            State::Stopping => "STATE_STOPPING",
-            State::SpinningDown => "STATE_SPINNING_DOWN",
-            State::Starting => "STATE_STARTING",
-            State::SpinningUp => "STATE_SPINNING_UP",
-            State::Transmit => "STATE_TRANSMIT",
+            Self::Off => "STATE_OFF",
+            Self::Standby => "STATE_STANDBY",
+            Self::WarmingUp => "STATE_WARMING_UP",
+            Self::TimedIdle => "STATE_TIMED_IDLE",
+            Self::Stopping => "STATE_STOPPING",
+            Self::SpinningDown => "STATE_SPINNING_DOWN",
+            Self::Starting => "STATE_STARTING",
+            Self::SpinningUp => "STATE_SPINNING_UP",
+            Self::Transmit => "STATE_TRANSMIT",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -102,11 +102,11 @@ impl CommandType {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            CommandType::CommandNone => "COMMAND_NONE",
-            CommandType::CommandTurnOn => "COMMAND_TURN_ON",
-            CommandType::CommandTurnOff => "COMMAND_TURN_OFF",
-            CommandType::CommandSetRange => "COMMAND_SET_RANGE",
-            CommandType::CommandSetGain => "COMMAND_SET_GAIN",
+            Self::CommandNone => "COMMAND_NONE",
+            Self::CommandTurnOn => "COMMAND_TURN_ON",
+            Self::CommandTurnOff => "COMMAND_TURN_OFF",
+            Self::CommandSetRange => "COMMAND_SET_RANGE",
+            Self::CommandSetGain => "COMMAND_SET_GAIN",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.

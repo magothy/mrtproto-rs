@@ -95,10 +95,10 @@ pub mod occupancy_map {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Type::Unknown => "UNKNOWN",
-                Type::Empty => "EMPTY",
-                Type::Occupied => "OCCUPIED",
-                Type::Merged => "MERGED",
+                Self::Unknown => "UNKNOWN",
+                Self::Empty => "EMPTY",
+                Self::Occupied => "OCCUPIED",
+                Self::Merged => "MERGED",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.

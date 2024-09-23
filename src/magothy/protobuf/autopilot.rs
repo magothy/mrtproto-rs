@@ -193,17 +193,17 @@ pub mod vehicle_data {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                DataSource::DsNodata => "DS_NODATA",
-                DataSource::DsImu => "DS_IMU",
-                DataSource::DsAhrs => "DS_AHRS",
-                DataSource::DsGps => "DS_GPS",
-                DataSource::DsDepth => "DS_DEPTH",
-                DataSource::DsAltitude => "DS_ALTITUDE",
-                DataSource::DsSpeed => "DS_SPEED",
-                DataSource::DsEstimation => "DS_ESTIMATION",
-                DataSource::DsComputation => "DS_COMPUTATION",
-                DataSource::DsSimulation => "DS_SIMULATION",
-                DataSource::DsIns => "DS_INS",
+                Self::DsNodata => "DS_NODATA",
+                Self::DsImu => "DS_IMU",
+                Self::DsAhrs => "DS_AHRS",
+                Self::DsGps => "DS_GPS",
+                Self::DsDepth => "DS_DEPTH",
+                Self::DsAltitude => "DS_ALTITUDE",
+                Self::DsSpeed => "DS_SPEED",
+                Self::DsEstimation => "DS_ESTIMATION",
+                Self::DsComputation => "DS_COMPUTATION",
+                Self::DsSimulation => "DS_SIMULATION",
+                Self::DsIns => "DS_INS",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -345,15 +345,15 @@ pub mod gps_if {
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
             pub fn as_str_name(&self) -> &'static str {
                 match self {
-                    FixQuality::FqInvalid => "FQ_INVALID",
-                    FixQuality::FqGps => "FQ_GPS",
-                    FixQuality::FqDgps => "FQ_DGPS",
-                    FixQuality::FqPps => "FQ_PPS",
-                    FixQuality::FqRtkFixed => "FQ_RTK_FIXED",
-                    FixQuality::FqRtkFloat => "FQ_RTK_FLOAT",
-                    FixQuality::FqEstimated => "FQ_ESTIMATED",
-                    FixQuality::FqManual => "FQ_MANUAL",
-                    FixQuality::FqSimulation => "FQ_SIMULATION",
+                    Self::FqInvalid => "FQ_INVALID",
+                    Self::FqGps => "FQ_GPS",
+                    Self::FqDgps => "FQ_DGPS",
+                    Self::FqPps => "FQ_PPS",
+                    Self::FqRtkFixed => "FQ_RTK_FIXED",
+                    Self::FqRtkFloat => "FQ_RTK_FLOAT",
+                    Self::FqEstimated => "FQ_ESTIMATED",
+                    Self::FqManual => "FQ_MANUAL",
+                    Self::FqSimulation => "FQ_SIMULATION",
                 }
             }
             /// Creates an enum from field names used in the ProtoBuf definition.
@@ -420,8 +420,8 @@ pub mod obstacle_if {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                ZoneType::ZoneKeepOut => "ZONE_KEEP_OUT",
-                ZoneType::ZoneKeepIn => "ZONE_KEEP_IN",
+                Self::ZoneKeepOut => "ZONE_KEEP_OUT",
+                Self::ZoneKeepIn => "ZONE_KEEP_IN",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -443,9 +443,13 @@ pub mod obstacle_if {
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Path {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, optional, tag="1")]
+    pub timestamp: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="2")]
+    pub ttag_steady_ns: u64,
+    #[prost(message, repeated, tag="3")]
     pub vertices: ::prost::alloc::vec::Vec<Position>,
-    #[prost(message, repeated, tag="2")]
+    #[prost(message, repeated, tag="4")]
     pub obstacles: ::prost::alloc::vec::Vec<ObstacleIf>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -509,13 +513,13 @@ pub mod vehicle_state_if {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Mode::VsStandby => "VS_STANDBY",
-                Mode::VsManual => "VS_MANUAL",
-                Mode::VsHealthyMission => "VS_HEALTHY_MISSION",
-                Mode::VsUnhealthyMission => "VS_UNHEALTHY_MISSION",
-                Mode::VsLoiter => "VS_LOITER",
-                Mode::VsMissionPlanning => "VS_MISSION_PLANNING",
-                Mode::VsUnhealthyMissionPlanning => "VS_UNHEALTHY_MISSION_PLANNING",
+                Self::VsStandby => "VS_STANDBY",
+                Self::VsManual => "VS_MANUAL",
+                Self::VsHealthyMission => "VS_HEALTHY_MISSION",
+                Self::VsUnhealthyMission => "VS_UNHEALTHY_MISSION",
+                Self::VsLoiter => "VS_LOITER",
+                Self::VsMissionPlanning => "VS_MISSION_PLANNING",
+                Self::VsUnhealthyMissionPlanning => "VS_UNHEALTHY_MISSION_PLANNING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -551,14 +555,14 @@ pub mod vehicle_state_if {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                FaultResponseType::FrIgnore => "FR_IGNORE",
-                FaultResponseType::FrHalt => "FR_HALT",
-                FaultResponseType::FrLoiter => "FR_LOITER",
-                FaultResponseType::FrGoRally => "FR_GO_RALLY",
-                FaultResponseType::FrGoFirst => "FR_GO_FIRST",
-                FaultResponseType::FrGoLast => "FR_GO_LAST",
-                FaultResponseType::FrGoLaunch => "FR_GO_LAUNCH",
-                FaultResponseType::FrCustom => "FR_CUSTOM",
+                Self::FrIgnore => "FR_IGNORE",
+                Self::FrHalt => "FR_HALT",
+                Self::FrLoiter => "FR_LOITER",
+                Self::FrGoRally => "FR_GO_RALLY",
+                Self::FrGoFirst => "FR_GO_FIRST",
+                Self::FrGoLast => "FR_GO_LAST",
+                Self::FrGoLaunch => "FR_GO_LAUNCH",
+                Self::FrCustom => "FR_CUSTOM",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
