@@ -448,9 +448,11 @@ pub struct Path {
     #[prost(uint64, tag="2")]
     pub ttag_steady_ns: u64,
     #[prost(message, repeated, tag="3")]
-    pub vertices: ::prost::alloc::vec::Vec<Position>,
+    pub path: ::prost::alloc::vec::Vec<Position>,
     #[prost(message, repeated, tag="4")]
     pub obstacles: ::prost::alloc::vec::Vec<ObstacleIf>,
+    #[prost(double, optional, tag="5")]
+    pub speed_mps: ::core::option::Option<f64>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VehicleStateIf {
