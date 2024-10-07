@@ -613,8 +613,8 @@ pub struct MavlinkMissionItemInt {
     pub x: i32,
     #[prost(int32, tag="14")]
     pub y: i32,
-    #[prost(int32, tag="15")]
-    pub z: i32,
+    #[prost(float, tag="15")]
+    pub z: f32,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MavlinkMission {
