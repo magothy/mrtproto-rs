@@ -442,6 +442,15 @@ pub mod obstacle_if {
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Obstacles {
+    #[prost(message, optional, tag="1")]
+    pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="2")]
+    pub ttag_steady_ns: u64,
+    #[prost(message, repeated, tag="3")]
+    pub obstacles: ::prost::alloc::vec::Vec<ObstacleIf>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Path {
     #[prost(message, optional, tag="1")]
     pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,

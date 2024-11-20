@@ -11,12 +11,14 @@ pub struct Pose {
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Spokes {
+    /// total number of spokes in one complete scan
     #[prost(uint32, tag="1")]
     pub num_spoke: u32,
     #[prost(uint32, tag="2")]
     pub first_spoke_index: u32,
     #[prost(float, tag="3")]
     pub range_m: f32,
+    /// contains multiple spokes. each spoke is a byte
     #[prost(bytes="vec", repeated, tag="4")]
     pub spokes: ::prost::alloc::vec::Vec<::prost::alloc::vec::Vec<u8>>,
 }
@@ -100,9 +102,13 @@ impl State {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum CommandType {
+    /// value ignored
     CommandNone = 0,
+    /// value ignored
     CommandTurnOn = 1,
+    /// value ignored
     CommandTurnOff = 2,
+    /// value is range in meters
     CommandSetRange = 3,
     CommandSetGain = 4,
 }
