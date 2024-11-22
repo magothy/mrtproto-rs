@@ -462,6 +462,12 @@ pub struct Path {
     pub obstacles: ::prost::alloc::vec::Vec<ObstacleIf>,
     #[prost(double, optional, tag="5")]
     pub speed_mps: ::core::option::Option<f64>,
+    #[prost(message, optional, tag="6")]
+    pub start: ::core::option::Option<Position>,
+    #[prost(message, optional, tag="7")]
+    pub end_local: ::core::option::Option<Position>,
+    #[prost(message, optional, tag="8")]
+    pub end_global: ::core::option::Option<Position>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VehicleStateIf {
