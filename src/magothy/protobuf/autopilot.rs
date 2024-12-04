@@ -456,6 +456,7 @@ pub struct Path {
     pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
     #[prost(uint64, tag="2")]
     pub ttag_steady_ns: u64,
+    /// local path
     #[prost(message, repeated, tag="3")]
     pub path: ::prost::alloc::vec::Vec<Position>,
     #[prost(message, repeated, tag="4")]
@@ -468,6 +469,8 @@ pub struct Path {
     pub end_local: ::core::option::Option<Position>,
     #[prost(message, optional, tag="8")]
     pub end_global: ::core::option::Option<Position>,
+    #[prost(message, repeated, tag="9")]
+    pub global_path: ::prost::alloc::vec::Vec<Position>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VehicleStateIf {
