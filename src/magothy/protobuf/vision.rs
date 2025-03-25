@@ -57,12 +57,28 @@ pub struct OccupancyMap {
     pub ttag_steady_ns: u64,
     #[prost(enumeration="occupancy_map::Type", tag="3")]
     pub r#type: i32,
+    #[prost(enumeration="occupancy_map::Scope", tag="11")]
+    pub scope: i32,
+    #[prost(enumeration="occupancy_map::Compression", tag="12")]
+    pub compression: i32,
     /// center of map
     #[prost(double, tag="4")]
     pub lat_deg: f64,
     /// center of map
     #[prost(double, tag="5")]
     pub lon_deg: f64,
+    /// top left
+    #[prost(double, tag="13")]
+    pub tl_lat_deg: f64,
+    /// top left
+    #[prost(double, tag="14")]
+    pub tl_lon_deg: f64,
+    /// bottom right
+    #[prost(double, tag="15")]
+    pub br_lat_deg: f64,
+    /// bottom right
+    #[prost(double, tag="16")]
+    pub br_lon_deg: f64,
     #[prost(double, tag="6")]
     pub width_m: f64,
     #[prost(double, tag="7")]
@@ -108,6 +124,67 @@ pub mod occupancy_map {
                 "EMPTY" => Some(Self::Empty),
                 "OCCUPIED" => Some(Self::Occupied),
                 "MERGED" => Some(Self::Merged),
+                _ => None,
+            }
+        }
+    }
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[repr(i32)]
+    pub enum Scope {
+        Local = 0,
+        Global = 1,
+    }
+    impl Scope {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Self::Local => "LOCAL",
+                Self::Global => "GLOBAL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "LOCAL" => Some(Self::Local),
+                "GLOBAL" => Some(Self::Global),
+                _ => None,
+            }
+        }
+    }
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[repr(i32)]
+    pub enum Compression {
+        Raw = 0,
+        Gz = 1,
+        Zstd = 2,
+        Jpeg = 3,
+        Png = 4,
+    }
+    impl Compression {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Self::Raw => "RAW",
+                Self::Gz => "GZ",
+                Self::Zstd => "ZSTD",
+                Self::Jpeg => "JPEG",
+                Self::Png => "PNG",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RAW" => Some(Self::Raw),
+                "GZ" => Some(Self::Gz),
+                "ZSTD" => Some(Self::Zstd),
+                "JPEG" => Some(Self::Jpeg),
+                "PNG" => Some(Self::Png),
                 _ => None,
             }
         }
