@@ -118,6 +118,8 @@ pub enum CommandType {
     /// value is range in meters
     CommandSetRange = 3,
     CommandSetGain = 4,
+    CommandSetRain = 5,
+    CommandSetSea = 6,
 }
 impl CommandType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -131,6 +133,8 @@ impl CommandType {
             Self::CommandTurnOff => "COMMAND_TURN_OFF",
             Self::CommandSetRange => "COMMAND_SET_RANGE",
             Self::CommandSetGain => "COMMAND_SET_GAIN",
+            Self::CommandSetRain => "COMMAND_SET_RAIN",
+            Self::CommandSetSea => "COMMAND_SET_SEA",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -141,6 +145,8 @@ impl CommandType {
             "COMMAND_TURN_OFF" => Some(Self::CommandTurnOff),
             "COMMAND_SET_RANGE" => Some(Self::CommandSetRange),
             "COMMAND_SET_GAIN" => Some(Self::CommandSetGain),
+            "COMMAND_SET_RAIN" => Some(Self::CommandSetRain),
+            "COMMAND_SET_SEA" => Some(Self::CommandSetSea),
             _ => None,
         }
     }
