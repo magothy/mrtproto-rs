@@ -190,4 +190,59 @@ pub mod occupancy_map {
         }
     }
 }
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct ObjectPosition {
+    #[prost(float, tag="1")]
+    pub latitude_deg: f32,
+    #[prost(float, tag="2")]
+    pub longitude_deg: f32,
+    #[prost(float, tag="3")]
+    pub z_m: f32,
+}
+/// Object velocity in cartesian coordinates (east, north, up)
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct ObjectVelocity {
+    #[prost(float, tag="1")]
+    pub vx_mps: f32,
+    #[prost(float, tag="2")]
+    pub vy_mps: f32,
+    #[prost(float, tag="3")]
+    pub vz_mps: f32,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ObjectTrack {
+    #[prost(message, optional, tag="1")]
+    pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="2")]
+    pub ttag_steady_ns: u64,
+    #[prost(int32, tag="3")]
+    pub track_id: i32,
+    #[prost(int32, tag="4")]
+    pub branch_id: i32,
+    /// source of the track, e.g. sensor ID, tracker ID
+    #[prost(int32, tag="5")]
+    pub source_id: i32,
+    /// update time since first detection
+    #[prost(float, tag="6")]
+    pub age_s: f32,
+    #[prost(message, optional, tag="7")]
+    pub position: ::core::option::Option<ObjectPosition>,
+    #[prost(message, optional, tag="8")]
+    pub velocity: ::core::option::Option<ObjectVelocity>,
+    /// 6x6 row-major covariance matrix
+    #[prost(float, repeated, tag="9")]
+    pub covariance: ::prost::alloc::vec::Vec<f32>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ObjectTrackList {
+    #[prost(message, optional, tag="1")]
+    pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="2")]
+    pub ttag_steady_ns: u64,
+    /// source of the track list
+    #[prost(int32, tag="3")]
+    pub source_id: i32,
+    #[prost(message, repeated, tag="4")]
+    pub tracks: ::prost::alloc::vec::Vec<ObjectTrack>,
+}
 // @@protoc_insertion_point(module)
