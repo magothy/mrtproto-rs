@@ -203,11 +203,9 @@ pub struct ObjectPosition {
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct ObjectVelocity {
     #[prost(float, tag="1")]
-    pub vx_mps: f32,
+    pub heading_deg: f32,
     #[prost(float, tag="2")]
-    pub vy_mps: f32,
-    #[prost(float, tag="3")]
-    pub vz_mps: f32,
+    pub speed_mps: f32,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ObjectTrack {
@@ -222,9 +220,9 @@ pub struct ObjectTrack {
     /// source of the track, e.g. sensor ID, tracker ID
     #[prost(int32, tag="5")]
     pub source_id: i32,
-    /// update time since first detection
+    /// number of times track updated
     #[prost(float, tag="6")]
-    pub age_s: f32,
+    pub update_count: f32,
     #[prost(message, optional, tag="7")]
     pub position: ::core::option::Option<ObjectPosition>,
     #[prost(message, optional, tag="8")]
@@ -232,6 +230,12 @@ pub struct ObjectTrack {
     /// 6x6 row-major covariance matrix
     #[prost(float, repeated, tag="9")]
     pub covariance: ::prost::alloc::vec::Vec<f32>,
+    /// is track tentative or confirmed
+    #[prost(bool, tag="10")]
+    pub is_confirmed: bool,
+    /// is position/velocity predicted (and not corrected)
+    #[prost(bool, tag="11")]
+    pub is_predicted: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ObjectTrackList {
