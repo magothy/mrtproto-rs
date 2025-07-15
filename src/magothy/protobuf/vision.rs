@@ -221,8 +221,8 @@ pub struct ObjectTrack {
     #[prost(int32, tag="5")]
     pub source_id: i32,
     /// number of times track updated
-    #[prost(float, tag="6")]
-    pub update_count: f32,
+    #[prost(int32, tag="6")]
+    pub update_count: i32,
     #[prost(message, optional, tag="7")]
     pub position: ::core::option::Option<ObjectPosition>,
     #[prost(message, optional, tag="8")]
