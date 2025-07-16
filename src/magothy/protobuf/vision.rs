@@ -192,10 +192,10 @@ pub mod occupancy_map {
 }
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct ObjectPosition {
-    #[prost(float, tag="1")]
-    pub latitude_deg: f32,
-    #[prost(float, tag="2")]
-    pub longitude_deg: f32,
+    #[prost(double, tag="1")]
+    pub latitude_deg: f64,
+    #[prost(double, tag="2")]
+    pub longitude_deg: f64,
     #[prost(float, tag="3")]
     pub z_m: f32,
 }
