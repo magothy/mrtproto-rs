@@ -220,21 +220,28 @@ pub struct ObjectTrack {
     /// source of the track, e.g. sensor ID, tracker ID
     #[prost(int32, tag="5")]
     pub source_id: i32,
-    /// number of times track updated
+    /// number of times track is updated
     #[prost(int32, tag="6")]
     pub update_count: i32,
-    #[prost(message, optional, tag="7")]
-    pub position: ::core::option::Option<ObjectPosition>,
-    #[prost(message, optional, tag="8")]
-    pub velocity: ::core::option::Option<ObjectVelocity>,
+    /// total time object is being tracked
+    #[prost(float, tag="7")]
+    pub age_s: f32,
+    #[prost(double, tag="8")]
+    pub latitude_deg: f64,
+    #[prost(double, tag="9")]
+    pub longitude_deg: f64,
+    #[prost(double, tag="10")]
+    pub heading_deg: f64,
+    #[prost(double, tag="11")]
+    pub speed_mps: f64,
     /// 6x6 row-major covariance matrix
-    #[prost(float, repeated, tag="9")]
+    #[prost(float, repeated, tag="12")]
     pub covariance: ::prost::alloc::vec::Vec<f32>,
     /// is track tentative or confirmed
-    #[prost(bool, tag="10")]
+    #[prost(bool, tag="13")]
     pub is_confirmed: bool,
     /// is position/velocity predicted (and not corrected)
-    #[prost(bool, tag="11")]
+    #[prost(bool, tag="14")]
     pub is_predicted: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
