@@ -190,23 +190,6 @@ pub mod occupancy_map {
         }
     }
 }
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
-pub struct ObjectPosition {
-    #[prost(double, tag="1")]
-    pub latitude_deg: f64,
-    #[prost(double, tag="2")]
-    pub longitude_deg: f64,
-    #[prost(float, tag="3")]
-    pub z_m: f32,
-}
-/// Object velocity in cartesian coordinates (east, north, up)
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
-pub struct ObjectVelocity {
-    #[prost(float, tag="1")]
-    pub heading_deg: f32,
-    #[prost(float, tag="2")]
-    pub speed_mps: f32,
-}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ObjectTrack {
     #[prost(message, optional, tag="1")]
