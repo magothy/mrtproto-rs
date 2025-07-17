@@ -203,12 +203,12 @@ pub struct ObjectTrack {
     /// source of the track, e.g. sensor ID, tracker ID
     #[prost(int32, tag="5")]
     pub source_id: i32,
-    /// number of times track is updated
-    #[prost(int32, tag="6")]
-    pub update_count: i32,
     /// total time object is being tracked
-    #[prost(float, tag="7")]
+    #[prost(float, tag="6")]
     pub age_s: f32,
+    /// number of times track is updated
+    #[prost(int32, tag="7")]
+    pub update_count: i32,
     #[prost(double, tag="8")]
     pub latitude_deg: f64,
     #[prost(double, tag="9")]
@@ -217,7 +217,7 @@ pub struct ObjectTrack {
     pub heading_deg: f64,
     #[prost(double, tag="11")]
     pub speed_mps: f64,
-    /// 6x6 row-major covariance matrix
+    /// 4x4 row-major covariance matrix
     #[prost(float, repeated, tag="12")]
     pub covariance: ::prost::alloc::vec::Vec<f32>,
     /// is track tentative or confirmed
