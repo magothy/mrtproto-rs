@@ -239,4 +239,20 @@ pub struct ObjectTrackList {
     #[prost(message, repeated, tag="4")]
     pub tracks: ::prost::alloc::vec::Vec<ObjectTrack>,
 }
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct Vertex {
+    #[prost(double, tag="1")]
+    pub latitude_deg: f64,
+    #[prost(double, tag="2")]
+    pub longitude_deg: f64,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TrackingZone {
+    #[prost(message, optional, tag="1")]
+    pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(uint64, tag="2")]
+    pub ttag_steady_ns: u64,
+    #[prost(message, repeated, tag="3")]
+    pub vertices: ::prost::alloc::vec::Vec<Vertex>,
+}
 // @@protoc_insertion_point(module)
