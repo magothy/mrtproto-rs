@@ -247,7 +247,7 @@ pub struct Vertex {
     pub longitude_deg: f64,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TrackingZone {
+pub struct TrackingFence {
     #[prost(message, optional, tag="1")]
     pub ttag_system: ::core::option::Option<::prost_types::Timestamp>,
     #[prost(uint64, tag="2")]
