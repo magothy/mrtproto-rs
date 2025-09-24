@@ -390,8 +390,8 @@ pub struct ObstacleIf {
     pub speed_mps: ::core::option::Option<f64>,
     #[prost(message, optional, tag="9")]
     pub point_of_interest: ::core::option::Option<Position>,
-    #[prost(enumeration="obstacle_if::IntentType", tag="10")]
-    pub intent_type: i32,
+    #[prost(enumeration="obstacle_if::IntentType", optional, tag="10")]
+    pub intent_type: ::core::option::Option<i32>,
     #[prost(oneof="obstacle_if::ObstacleOneOf", tags="2, 3")]
     pub obstacle_one_of: ::core::option::Option<obstacle_if::ObstacleOneOf>,
 }
