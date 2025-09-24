@@ -390,6 +390,8 @@ pub struct ObstacleIf {
     pub speed_mps: ::core::option::Option<f64>,
     #[prost(message, optional, tag="9")]
     pub point_of_interest: ::core::option::Option<Position>,
+    #[prost(enumeration="obstacle_if::IntentType", tag="10")]
+    pub intent_type: i32,
     #[prost(oneof="obstacle_if::ObstacleOneOf", tags="2, 3")]
     pub obstacle_one_of: ::core::option::Option<obstacle_if::ObstacleOneOf>,
 }
@@ -429,6 +431,35 @@ pub mod obstacle_if {
             match value {
                 "ZONE_KEEP_OUT" => Some(Self::ZoneKeepOut),
                 "ZONE_KEEP_IN" => Some(Self::ZoneKeepIn),
+                _ => None,
+            }
+        }
+    }
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[repr(i32)]
+    pub enum IntentType {
+        Friendly = 0,
+        Hostile = 1,
+        Unknown = 2,
+    }
+    impl IntentType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Self::Friendly => "FRIENDLY",
+                Self::Hostile => "HOSTILE",
+                Self::Unknown => "UNKNOWN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "FRIENDLY" => Some(Self::Friendly),
+                "HOSTILE" => Some(Self::Hostile),
+                "UNKNOWN" => Some(Self::Unknown),
                 _ => None,
             }
         }
