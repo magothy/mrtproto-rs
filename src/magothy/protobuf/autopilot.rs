@@ -438,9 +438,9 @@ pub mod obstacle_if {
     #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum IntentType {
-        Friendly = 0,
-        Hostile = 1,
-        Unknown = 2,
+        Unknown = 0,
+        Friendly = 1,
+        Hostile = 2,
     }
     impl IntentType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -449,17 +449,17 @@ pub mod obstacle_if {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
+                Self::Unknown => "UNKNOWN",
                 Self::Friendly => "FRIENDLY",
                 Self::Hostile => "HOSTILE",
-                Self::Unknown => "UNKNOWN",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
+                "UNKNOWN" => Some(Self::Unknown),
                 "FRIENDLY" => Some(Self::Friendly),
                 "HOSTILE" => Some(Self::Hostile),
-                "UNKNOWN" => Some(Self::Unknown),
                 _ => None,
             }
         }
